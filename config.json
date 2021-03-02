@@ -1,0 +1,22 @@
+[
+    {
+        "Name": "Save and export (PlcOpenXml)",
+        "Desc": "Saves the project and exports all data to the folder of the active project in Plc Open Xml format",
+        "Icon": "savePlcOpenXml.ico",
+        "Path": "saveAndExport.py",
+        "Params":
+            [
+                "--plcopenxml"
+            ]
+    },  
+    {
+        "Name": "Save and export (Native Xml)",
+        "Desc": "Saves the project and exports all data to the folder of the active project in Codesys native Xml format",
+        "Icon": "saveCodesysXml.ico",
+        "Path": "saveAndExport.py",
+        "Params":
+            [
+                "--nativexml"
+            ]
+    }
+]
