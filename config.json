@@ -18,5 +18,15 @@
             [
                 "--nativexml"
             ]
+    },  
+    {
+        "Name": "Generate docs",
+        "Desc": "Saves the project, exports all data to the folder of the active project in PlcOpen Xml format and generates documentation using ia_tools",
+        "Icon": "saveCodesysXml.ico",
+        "Path": "createDocs.py",
+        "Params":
+            [
+                "iecMd"
+            ]
     }
 ]
