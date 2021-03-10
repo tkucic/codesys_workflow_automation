@@ -43,8 +43,8 @@ if __name__=='__main__':
 
         elif sys.argv[1] in ['-n', '--nativexml']:
             #Export to native codesys xml
-            saveAndExport(projects.primary, '-p''-n')
+            saveAndExport(projects.primary, '-n')
 
     except IndexError:
         #Export to PLCOpenXML
-        saveAndExport(projects.primary, '-p''-p')
+        saveAndExport(projects.primary, '-p')
