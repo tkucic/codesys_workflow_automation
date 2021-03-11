@@ -3,30 +3,21 @@
         "Name": "Save and export (PlcOpenXml)",
         "Desc": "Saves the project and exports all data to the folder of the active project in Plc Open Xml format",
         "Icon": "savePlcOpenXml.ico",
-        "Path": "saveAndExport.py",
-        "Params":
-            [
-                "--plcopenxml"
-            ]
+        "Path": "saveAndExport_plcopenxml.py",
+        "Params": []
     },  
     {
         "Name": "Save and export (Native Xml)",
         "Desc": "Saves the project and exports all data to the folder of the active project in Codesys native Xml format",
         "Icon": "saveCodesysXml.ico",
-        "Path": "saveAndExport.py",
-        "Params":
-            [
-                "--nativexml"
-            ]
+        "Path": "saveAndExport_native.py",
+        "Params": []
     },  
     {
         "Name": "NOT PUBLIC: Generate docs",
         "Desc": "Saves the project, exports all data to the folder of the active project in PlcOpen Xml format and generates documentation using ia_tools",
-        "Icon": "saveCodesysXml.ico",
+        "Icon": "generateDocs.ico",
         "Path": "createDocs.py",
-        "Params":
-            [
-                "--iecMd"
-            ]
+        "Params": []
     }
 ]
