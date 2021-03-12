@@ -22,9 +22,14 @@ if os.path.isfile(remConfigPath):
     print('config.json existing, updating...')
     #If it exists, we cannot overwrite existing config, we can only add or update
     with open(remConfigPath, 'r') as f:
-        #File can be empty or invalid json, we need to check
-        #Read the file and convert it back to dictionary
-        remCfgs = json.loads(f.read())
+        #File can be empty or invalid json, we need to validate
+        try:
+            #Read the file and convert it back to dictionary
+            remCfgs = json.loads(f.read())
+        except json.decoder.JSONDecodeError:
+            #Overwrite only on invalid json, stop build if something else
+            print('JSONDecodeError: Creating new json data')
+            remCfgs = []
 
     #Update the dictionary with new data
     for localCfg in localCfgs:
