@@ -31,6 +31,8 @@ More on codesys scripting on [Codesys Online Help](https://help.codesys.com/weba
 
 In the repo I have provided the build.py script that can be ran and it will install all necessary scripts, icons and config.json to the C:\ProgramData\CODESYS\Script Commands folder. In case the folder already exists, the script will update the config.json and update the scripts that have the same name as in the new config.json. If you have scripts of your own already mapped to config.json, they will not be overwritten if they have a different name. Automatic build must be ran with administrative rights. If you have a problem with that, the build script is python so you can read what it does, or you can always install manually.
 
+WARNING: If the config.json is corrupted or json is not valid, the script will overwrite the contents
+
 ## License
 
 MIT
