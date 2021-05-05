@@ -101,6 +101,19 @@ def updatePou(existingPou, newPou):
         #Write the code
         existingPou.textual_implementation.insert(0,0, newPou.get('code', ''))
 
+        #Create actions if any
+        for action in newPou.get('actions'):
+            for child in existingPou.get_children():
+                if child.get_name() == action.get('name'):
+                    #Remove all code
+                    deleteTextualObject(child.textual_implementation)
+                    #Write the code
+                    child.textual_implementation.insert(0,0, action.get('code', ''))
+                    break
+            else:
+                act = existingPou.create_action(name=action.get('name'))
+                act.textual_implementation.insert(0,0, action.get('code', ''))
+
     except Exception as e:
         print('Update failed: ', e)
 
@@ -137,11 +150,11 @@ def createPou(root, pou):
 
     #Create the pou
     try:
-        if pou.get('type') == 'Function':
+        if pou.get('type') == 'function':
             crpFct = root.create_pou(name=pou.get('name'), type=PouType.Function, return_type=pou.get('returnType'))
-        elif pou.get('type') == 'Program':
+        elif pou.get('type') == 'program':
             crpFct = root.create_pou(name=pou.get('name'), type=PouType.Program)
-        elif pou.get('type') == 'Function block':
+        elif pou.get('type') == 'functionBlock':
             crpFct = root.create_pou(name=pou.get('name'), type=PouType.FunctionBlock)
             
         #Remove everything after the function name
@@ -152,6 +165,11 @@ def createPou(root, pou):
 
         #This writes code
         crpFct.textual_implementation.insert(0,0, pou.get('code', ''))
+
+        #Create actions if any
+        for action in pou.get('actions'):
+            act = crpFct.create_action(name=action.get('name'))
+            act.textual_implementation.insert(0,0, action.get('code', ''))
 
     except Exception as e:
         print('Import failed: ', e)
