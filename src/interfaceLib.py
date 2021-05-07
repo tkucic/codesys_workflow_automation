@@ -78,41 +78,22 @@ def createFolder(root, name):
     else:
         raise Exception('Folder {1} couldnt be created'.format(name))
 
-def deleteTextualObject(text, decl=False):
-    if decl == True:
-        for lineno in range(1, text.linecount):
-            text.remove(lineno, 0, len(text.get_line(lineno)))
-    else:
-        for lineno in range(0, text.linecount):
-            text.remove(lineno, 0, len(text.get_line(lineno)))
-
 def updatePou(existingPou, newPou):
     #Update the pou
     try:
-        #Remove everything after the pou name in the declaration
-        deleteTextualObject(existingPou.textual_declaration, decl=True)
-
-        #Remove all code
-        deleteTextualObject(existingPou.textual_implementation)
-
-        #Write the textual declaration
-        existingPou.textual_declaration.insert(1, 0, newPou.get('declaration', ''))
-
-        #Write the code
-        existingPou.textual_implementation.insert(0,0, newPou.get('code', ''))
+        #Write the declaration and the code
+        existingPou.textual_declaration.replace(newPou.get('declaration', ''))
+        existingPou.textual_implementation.replace(newPou.get('code', ''))
 
         #Create actions if any
         for action in newPou.get('actions'):
             for child in existingPou.get_children():
                 if child.get_name() == action.get('name'):
-                    #Remove all code
-                    deleteTextualObject(child.textual_implementation)
-                    #Write the code
-                    child.textual_implementation.insert(0,0, action.get('code', ''))
+                    child.textual_implementation.replace(action.get('code', ''))
                     break
             else:
                 act = existingPou.create_action(name=action.get('name'))
-                act.textual_implementation.insert(0,0, action.get('code', ''))
+                act.textual_implementation.replace(action.get('code', ''))
 
     except Exception as e:
         print('Update failed: ', e)
@@ -120,11 +101,8 @@ def updatePou(existingPou, newPou):
 def updateDut(existingDt, newDt):
     #Update the dt
     try:
-        #Remove everything in the declaration
-        deleteTextualObject(existingDt.textual_declaration)
-
-        #Write the textual declaration
-        existingDt.textual_declaration.insert(1, 0, newDt.get('declaration', ''))
+        #Write the declaration
+        existingDt.textual_declaration.replace(newDt.get('declaration', ''))
 
     except Exception as e:
         print('Update failed: ', e)
@@ -135,12 +113,9 @@ def createDut(root, dt):
     #Create the pou
     try:
         crpFct = root.create_dut(dt.get('name'))
-            
-        #Remove all text from the textual declaration
-        deleteTextualObject(crpFct.textual_declaration)
 
-        #Write the textual declaration
-        crpFct.textual_declaration.insert(1, 0, dt.get('declaration', ''))
+        #Write the declaration
+        crpFct.textual_declaration.replace(dt.get('declaration', ''))
 
     except Exception as e:
         print('Import failed: ', e)
@@ -157,19 +132,14 @@ def createPou(root, pou):
         elif pou.get('type') == 'functionBlock':
             crpFct = root.create_pou(name=pou.get('name'), type=PouType.FunctionBlock)
             
-        #Remove everything after the function name
-        deleteTextualObject(crpFct.textual_declaration, decl=True)
+        #Write the declaration and the code
+        crpFct.textual_declaration.replace(pou.get('declaration', ''))
+        crpFct.textual_implementation.replace(pou.get('code', ''))
 
-        #Write the textual declaration
-        crpFct.textual_declaration.insert(1, 0, pou.get('declaration', ''))
-
-        #This writes code
-        crpFct.textual_implementation.insert(0,0, pou.get('code', ''))
-
-        #Create actions if any
+        #Create actions and/or methods if any
         for action in pou.get('actions'):
             act = crpFct.create_action(name=action.get('name'))
-            act.textual_implementation.insert(0,0, action.get('code', ''))
+            act.textual_implementation.replace(action.get('code', ''))
 
     except Exception as e:
         print('Import failed: ', e)
