@@ -12,12 +12,5 @@
         "Icon": "saveCodesysXml.ico",
         "Path": "saveAndExport_native.py",
         "Params": []
-    },  
-    {
-        "Name": "NOT PUBLIC: Generate docs",
-        "Desc": "Saves the project, exports all data to the folder of the active project in PlcOpen Xml format and generates documentation using ia_tools",
-        "Icon": "generateDocs.ico",
-        "Path": "createDocs.py",
-        "Params": []
     }
 ]
