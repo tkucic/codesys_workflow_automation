@@ -38,18 +38,25 @@ def saveAndExport(project, arg):
     #Calculate the projects name based on path
     proj_name = os.path.basename(project.path).split('.')[0]
 
-    #Calculate the new file name
-    fpath = os.path.join(os.path.dirname(project.path), proj_name + '.xml')
-
     if arg in ['-p', '--plcopenxml']:
+        
+        #Calculate the new file name
+        fpath = os.path.join(os.path.dirname(project.path), proj_name + '.xml')
+        
         #Export to PLCOpenXML
         project.export_xml(project.get_children(recursive=True), path=fpath, recursive=True, export_folder_structure=True)
+        
         #Return the saved file path
         return fpath
 
     elif arg in ['-n', '--nativexml']:
+        
+        #Calculate the new file name
+        fpath = os.path.join(os.path.dirname(project.path), proj_name + '.export')
+        
         #Export to native codesys xml
         project.export_native(objects=project.get_children(recursive=True), destination=fpath, recursive=True, profile_name=None, reporter=None)
+        
         #Return the saved file path
         return fpath
     #If no argument passed
