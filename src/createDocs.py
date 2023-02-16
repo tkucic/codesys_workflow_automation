@@ -1,12 +1,13 @@
 #Codesys iron python / python 2.7
 from __future__ import print_function
-from interfaceLib import saveAndExport
+from codesysBulker import CodesysBulker
 import os, subprocess
 
 #This script will 
+#Get the bulker handle
+project = CodesysBulker(projects.primary, True)
 #Save the project and export the plc open xml to the same path as the .project file
-project = projects.primary
-filePath = saveAndExport(project, '-p')
+filePath = project.saveAndExport('-p')
 
 if filePath == None:
     raise Exception('Project xml not generated')
