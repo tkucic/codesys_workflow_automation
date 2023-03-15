@@ -1,0 +1,1133 @@
+{
+    "namespaces": [
+      {
+        "name": "TestNamespace",
+        "prgs": [
+          {
+            "name": "typeProgram",
+            "type": "program",
+            "description": "",
+            "if": [
+              {
+                "name": "VAR_INPUT",
+                "vars": [
+                  {
+                    "name": "inputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar1"
+                  },
+                  {
+                    "name": "inputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar2"
+                  },
+                  {
+                    "name": "inputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_IN_OUT",
+                "vars": [
+                  {
+                    "name": "inoutVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar1"
+                  },
+                  {
+                    "name": "inoutVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar2"
+                  },
+                  {
+                    "name": "inoutVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_OUTPUT",
+                "vars": [
+                  {
+                    "name": "outputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar1"
+                  },
+                  {
+                    "name": "outputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar2"
+                  },
+                  {
+                    "name": "outputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR",
+                "vars": [
+                  {
+                    "name": "localVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar1"
+                  },
+                  {
+                    "name": "localVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar2"
+                  },
+                  {
+                    "name": "localVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer"
+                  }
+                ],
+                "attribute": ""
+              }
+            ],
+            "code": "(* THIS IS HOW THE CODE LOOKS *)\n\n(*** DOCS STRING EXAMPLE ONE LINE***)\n(*** DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t***)\n(*** DOCS STRING WITH EMBEDDED CODE *)\noutputVar1 := outputVar2;\n(* THE CODE ABOVE IS INCLUDED IN THE DOCS ***)\n",
+            "actions": [],
+            "methods": [],
+            "docStrings": [
+              " DOCS STRING EXAMPLE ONE LINE",
+              " DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t",
+              " DOCS STRING WITH EMBEDDED CODE \noutputVar1 := outputVar2;\nTHE CODE ABOVE IS INCLUDED IN THE DOCS "
+            ],
+            "metrics": {
+              "varCount": 3,
+              "parCount": 9,
+              "actionCount": 0,
+              "methodCount": 0,
+              "lnCode": 1,
+              "lnComments": 8,
+              "lnTotal": 10,
+              "varSize": 3,
+              "parSize": 18,
+              "lnCodeSize": 1,
+              "size": 22
+            }
+          }
+        ],
+        "fbs": [
+          {
+            "name": "typeFunctionBlock",
+            "type": "functionBlock",
+            "description": "",
+            "if": [
+              {
+                "name": "VAR_INPUT",
+                "vars": [
+                  {
+                    "name": "inputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar1"
+                  },
+                  {
+                    "name": "inputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar2"
+                  },
+                  {
+                    "name": "inputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_IN_OUT",
+                "vars": [
+                  {
+                    "name": "inoutVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar1"
+                  },
+                  {
+                    "name": "inoutVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar2"
+                  },
+                  {
+                    "name": "inoutVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_OUTPUT",
+                "vars": [
+                  {
+                    "name": "outputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar1"
+                  },
+                  {
+                    "name": "outputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar2"
+                  },
+                  {
+                    "name": "outputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR",
+                "vars": [
+                  {
+                    "name": "localVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar1"
+                  },
+                  {
+                    "name": "localVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar2"
+                  },
+                  {
+                    "name": "localVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer"
+                  }
+                ],
+                "attribute": ""
+              }
+            ],
+            "code": "(* THIS IS HOW THE CODE LOOKS *)\n\n(*** DOCS STRING EXAMPLE ONE LINE***)\n(*** DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t***)\n(*** DOCS STRING WITH EMBEDDED CODE *)\noutputVar1 := outputVar2;\n(* THE CODE ABOVE IS INCLUDED IN THE DOCS ***)\n",
+            "actions": [],
+            "methods": [],
+            "docStrings": [
+              " DOCS STRING EXAMPLE ONE LINE",
+              " DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t",
+              " DOCS STRING WITH EMBEDDED CODE \noutputVar1 := outputVar2;\nTHE CODE ABOVE IS INCLUDED IN THE DOCS "
+            ],
+            "metrics": {
+              "varCount": 3,
+              "parCount": 9,
+              "actionCount": 0,
+              "methodCount": 0,
+              "lnCode": 1,
+              "lnComments": 8,
+              "lnTotal": 10,
+              "varSize": 3,
+              "parSize": 18,
+              "lnCodeSize": 1,
+              "size": 22
+            }
+          }
+        ],
+        "fcs": [
+          {
+            "name": "typeFunction",
+            "type": "function",
+            "description": "",
+            "returnType": "BOOL",
+            "if": [
+              {
+                "name": "VAR_INPUT",
+                "vars": [
+                  {
+                    "name": "inputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar1"
+                  },
+                  {
+                    "name": "inputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar2"
+                  },
+                  {
+                    "name": "inputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_IN_OUT",
+                "vars": [
+                  {
+                    "name": "inoutVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar1"
+                  },
+                  {
+                    "name": "inoutVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar2"
+                  },
+                  {
+                    "name": "inoutVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_OUTPUT",
+                "vars": [
+                  {
+                    "name": "outputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar1"
+                  },
+                  {
+                    "name": "outputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar2"
+                  },
+                  {
+                    "name": "outputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR",
+                "vars": [
+                  {
+                    "name": "localVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar1"
+                  },
+                  {
+                    "name": "localVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar2"
+                  },
+                  {
+                    "name": "localVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer to elementary value"
+                  },
+                  {
+                    "name": "localVar4",
+                    "type": "POINTER TO enumTest",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer to enumeration"
+                  },
+                  {
+                    "name": "localVar5",
+                    "type": "POINTER TO typeDUT1",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer to structure"
+                  },
+                  {
+                    "name": "localVar6",
+                    "type": "POINTER TO ARRAY[0..2] OF INT",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer to structure"
+                  },
+                  {
+                    "name": "localVar7",
+                    "type": "typeDUT1",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var, structure with complex init"
+                  },
+                  {
+                    "name": "dummy5",
+                    "type": "ARRAY[0..2] OF BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Dummy variable5"
+                  },
+                  {
+                    "name": "dummy6",
+                    "type": "ARRAY[0..2] OF BOOL",
+                    "attribute": "",
+                    "initialValue": "['TRUE', 'FALSE', 'TRUE']",
+                    "description": "1D array with initialization"
+                  },
+                  {
+                    "name": "dummy7",
+                    "type": "ARRAY[0..2, 0..3] OF INT",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "2D array without initialization"
+                  },
+                  {
+                    "name": "dummy8",
+                    "type": "ARRAY[0..2, 0..3] OF INT",
+                    "attribute": "",
+                    "initialValue": "['0', '1', '2', '3', '4', '5', '6', '7', '8']",
+                    "description": "2D array with initialization"
+                  },
+                  {
+                    "name": "dummy9",
+                    "type": "enumTest",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local variable as enumeration"
+                  },
+                  {
+                    "name": "dummy10",
+                    "type": "ARRAY[0..2] OF typeDUT1",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Array of user data type"
+                  },
+                  {
+                    "name": "dummy11",
+                    "type": "ARRAY[0..2, 0..3, 0..1] OF INT",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "3D array without initialization"
+                  },
+                  {
+                    "name": "dummy12",
+                    "type": "ARRAY[0..2, 0..3, 0..1] OF INT",
+                    "attribute": "",
+                    "initialValue": "['0', '1', '2', '3', '4', '5', '6', '7', '8']",
+                    "description": "3D array with initialization"
+                  }
+                ],
+                "attribute": ""
+              }
+            ],
+            "code": "(* THIS IS HOW THE CODE LOOKS *)\n\n(*** DOCS STRING EXAMPLE ONE LINE***)\n(*** DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t***)\n(*** DOCS STRING WITH EMBEDDED CODE *)\noutputVar1 := outputVar2;\n(* THE CODE ABOVE IS INCLUDED IN THE DOCS ***)\n\nRETURN;",
+            "actions": [],
+            "methods": [],
+            "docStrings": [
+              " DOCS STRING EXAMPLE ONE LINE",
+              " DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t",
+              " DOCS STRING WITH EMBEDDED CODE \noutputVar1 := outputVar2;\nTHE CODE ABOVE IS INCLUDED IN THE DOCS "
+            ],
+            "metrics": {
+              "varCount": 15,
+              "parCount": 9,
+              "lnCode": 2,
+              "lnComments": 8,
+              "lnTotal": 12,
+              "varSize": 15,
+              "parSize": 18,
+              "lnCodeSize": 2,
+              "size": 35
+            }
+          }
+        ],
+        "class": [],
+        "dts": [
+          {
+            "name": "typeDUT1",
+            "baseType": "struct",
+            "initialValue": "",
+            "attribute": "",
+            "description": "",
+            "components": [
+              {
+                "name": "dummy1",
+                "type": "BOOL",
+                "attribute": "",
+                "initialValue": "TRUE",
+                "description": "Dummy variable1"
+              },
+              {
+                "name": "dummy2",
+                "type": "REAL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable2"
+              },
+              {
+                "name": "dummy3",
+                "type": "typeDUT2",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable3"
+              },
+              {
+                "name": "dummy4",
+                "type": "ARRAY[0..2] OF BOOL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable4"
+              }
+            ],
+            "metrics": {
+              "cptCount": 4,
+              "size": 4
+            }
+          },
+          {
+            "name": "typeDUT2",
+            "baseType": "struct",
+            "initialValue": "",
+            "attribute": "",
+            "description": "",
+            "components": [
+              {
+                "name": "dummy1",
+                "type": "BOOL",
+                "attribute": "",
+                "initialValue": "TRUE",
+                "description": "Dummy variable1"
+              },
+              {
+                "name": "dummy2",
+                "type": "REAL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable2"
+              },
+              {
+                "name": "dummy3",
+                "type": "typeDUT1",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable3"
+              },
+              {
+                "name": "dummy4",
+                "type": "ARRAY[0..2] OF BOOL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable4"
+              }
+            ],
+            "metrics": {
+              "cptCount": 4,
+              "size": 4
+            }
+          },
+          {
+            "name": "enumTest",
+            "baseType": "enum",
+            "initialValue": "",
+            "attribute": "",
+            "description": "",
+            "components": [
+              {
+                "name": "member1",
+                "initialValue": "0",
+                "attribute": "",
+                "type": "enum",
+                "description": ""
+              },
+              {
+                "name": "member2",
+                "initialValue": "1",
+                "attribute": "",
+                "type": "enum",
+                "description": ""
+              },
+              {
+                "name": "member3",
+                "initialValue": "3",
+                "attribute": "",
+                "type": "enum",
+                "description": ""
+              },
+              {
+                "name": "member4",
+                "initialValue": "",
+                "attribute": "",
+                "type": "enum",
+                "description": ""
+              }
+            ],
+            "metrics": {
+              "cptCount": 4,
+              "size": 4
+            }
+          }
+        ],
+        "vars": []
+      },
+      {
+        "name": "TestNamespace2",
+        "prgs": [
+          {
+            "name": "TestProgram_ST",
+            "type": "program",
+            "description": "",
+            "if": [
+              {
+                "name": "VAR_INPUT",
+                "vars": [
+                  {
+                    "name": "inputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar1"
+                  },
+                  {
+                    "name": "inputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar2"
+                  },
+                  {
+                    "name": "inputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_IN_OUT",
+                "vars": [
+                  {
+                    "name": "inoutVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar1"
+                  },
+                  {
+                    "name": "inoutVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar2"
+                  },
+                  {
+                    "name": "inoutVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_OUTPUT",
+                "vars": [
+                  {
+                    "name": "outputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar1"
+                  },
+                  {
+                    "name": "outputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar2"
+                  },
+                  {
+                    "name": "outputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR",
+                "vars": [
+                  {
+                    "name": "localVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar1"
+                  },
+                  {
+                    "name": "localVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar2"
+                  },
+                  {
+                    "name": "localVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer"
+                  }
+                ],
+                "attribute": ""
+              }
+            ],
+            "code": "(* THIS IS HOW THE CODE LOOKS *)\n\n(*** DOCS STRING EXAMPLE ONE LINE***)\n(*** DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t***)\n(*** DOCS STRING WITH EMBEDDED CODE *)\noutputVar1 := outputVar2;\n(* THE CODE ABOVE IS INCLUDED IN THE DOCS ***)\n",
+            "actions": [],
+            "methods": [],
+            "docStrings": [
+              " DOCS STRING EXAMPLE ONE LINE",
+              " DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t",
+              " DOCS STRING WITH EMBEDDED CODE \noutputVar1 := outputVar2;\nTHE CODE ABOVE IS INCLUDED IN THE DOCS "
+            ],
+            "metrics": {
+              "varCount": 3,
+              "parCount": 9,
+              "actionCount": 0,
+              "methodCount": 0,
+              "lnCode": 1,
+              "lnComments": 8,
+              "lnTotal": 10,
+              "varSize": 3,
+              "parSize": 18,
+              "lnCodeSize": 1,
+              "size": 22
+            }
+          }
+        ],
+        "fbs": [
+          {
+            "name": "Test_FunctionBlock_ST",
+            "type": "functionBlock",
+            "description": "",
+            "if": [
+              {
+                "name": "VAR_INPUT",
+                "vars": [
+                  {
+                    "name": "inputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar1"
+                  },
+                  {
+                    "name": "inputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar2"
+                  },
+                  {
+                    "name": "inputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_IN_OUT",
+                "vars": [
+                  {
+                    "name": "inoutVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar1"
+                  },
+                  {
+                    "name": "inoutVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar2"
+                  },
+                  {
+                    "name": "inoutVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_OUTPUT",
+                "vars": [
+                  {
+                    "name": "outputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar1"
+                  },
+                  {
+                    "name": "outputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar2"
+                  },
+                  {
+                    "name": "outputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR",
+                "vars": [
+                  {
+                    "name": "localVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar1"
+                  },
+                  {
+                    "name": "localVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar2"
+                  },
+                  {
+                    "name": "localVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer"
+                  }
+                ],
+                "attribute": ""
+              }
+            ],
+            "code": "(* THIS IS HOW THE CODE LOOKS *)\n\n(*** DOCS STRING EXAMPLE ONE LINE***)\n(*** DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t***)\n(*** DOCS STRING WITH EMBEDDED CODE *)\noutputVar1 := outputVar2;\n(* THE CODE ABOVE IS INCLUDED IN THE DOCS ***)\n",
+            "actions": [],
+            "methods": [],
+            "docStrings": [
+              " DOCS STRING EXAMPLE ONE LINE",
+              " DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t",
+              " DOCS STRING WITH EMBEDDED CODE \noutputVar1 := outputVar2;\nTHE CODE ABOVE IS INCLUDED IN THE DOCS "
+            ],
+            "metrics": {
+              "varCount": 3,
+              "parCount": 9,
+              "actionCount": 0,
+              "methodCount": 0,
+              "lnCode": 1,
+              "lnComments": 8,
+              "lnTotal": 10,
+              "varSize": 3,
+              "parSize": 18,
+              "lnCodeSize": 1,
+              "size": 22
+            }
+          }
+        ],
+        "fcs": [
+          {
+            "name": "TestFunction_ST",
+            "type": "function",
+            "description": "",
+            "returnType": "BOOL",
+            "if": [
+              {
+                "name": "VAR_INPUT",
+                "vars": [
+                  {
+                    "name": "inputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar1"
+                  },
+                  {
+                    "name": "inputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar2"
+                  },
+                  {
+                    "name": "inputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_IN_OUT",
+                "vars": [
+                  {
+                    "name": "inoutVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar1"
+                  },
+                  {
+                    "name": "inoutVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar2"
+                  },
+                  {
+                    "name": "inoutVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of inoutVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR_OUTPUT",
+                "vars": [
+                  {
+                    "name": "outputVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar1"
+                  },
+                  {
+                    "name": "outputVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar2"
+                  },
+                  {
+                    "name": "outputVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of outputVar3 as a pointer"
+                  }
+                ],
+                "attribute": ""
+              },
+              {
+                "name": "VAR",
+                "vars": [
+                  {
+                    "name": "localVar1",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar1"
+                  },
+                  {
+                    "name": "localVar2",
+                    "type": "BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Comment of localVar2"
+                  },
+                  {
+                    "name": "localVar3",
+                    "type": "POINTER TO BOOL",
+                    "attribute": "",
+                    "initialValue": "",
+                    "description": "Local var as a pointer"
+                  }
+                ],
+                "attribute": ""
+              }
+            ],
+            "code": "(* THIS IS HOW THE CODE LOOKS *)\n\n(*** DOCS STRING EXAMPLE ONE LINE***)\n(*** DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t***)\n(*** DOCS STRING WITH EMBEDDED CODE *)\noutputVar1 := outputVar2;\n(* THE CODE ABOVE IS INCLUDED IN THE DOCS ***)\n\nRETURN;",
+            "actions": [],
+            "methods": [],
+            "docStrings": [
+              " DOCS STRING EXAMPLE ONE LINE",
+              " DOCS STRING EXAMPLE\n\tMULTI\n\t\t\tLINE\n\t\t\t",
+              " DOCS STRING WITH EMBEDDED CODE \noutputVar1 := outputVar2;\nTHE CODE ABOVE IS INCLUDED IN THE DOCS "
+            ],
+            "metrics": {
+              "varCount": 3,
+              "parCount": 9,
+              "lnCode": 2,
+              "lnComments": 8,
+              "lnTotal": 12,
+              "varSize": 3,
+              "parSize": 18,
+              "lnCodeSize": 2,
+              "size": 23
+            }
+          }
+        ],
+        "class": [],
+        "dts": [
+          {
+            "name": "dummyDUT1",
+            "baseType": "struct",
+            "initialValue": "",
+            "attribute": "",
+            "description": "",
+            "components": [
+              {
+                "name": "dummy1",
+                "type": "BOOL",
+                "attribute": "",
+                "initialValue": "TRUE",
+                "description": "Dummy variable1"
+              },
+              {
+                "name": "dummy2",
+                "type": "REAL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable2"
+              },
+              {
+                "name": "dummy3",
+                "type": "dummyDUT2",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable3"
+              },
+              {
+                "name": "dummy4",
+                "type": "ARRAY[0..2] OF BOOL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable4"
+              }
+            ],
+            "metrics": {
+              "cptCount": 4,
+              "size": 4
+            }
+          },
+          {
+            "name": "dummyDUT2",
+            "baseType": "struct",
+            "initialValue": "",
+            "attribute": "",
+            "description": "",
+            "components": [
+              {
+                "name": "dummy1",
+                "type": "BOOL",
+                "attribute": "",
+                "initialValue": "TRUE",
+                "description": "Dummy variable1"
+              },
+              {
+                "name": "dummy2",
+                "type": "REAL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable2"
+              },
+              {
+                "name": "dummy3",
+                "type": "dummyDUT1",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable3"
+              },
+              {
+                "name": "dummy4",
+                "type": "ARRAY[0..2] OF BOOL",
+                "attribute": "",
+                "initialValue": "",
+                "description": "Dummy variable4"
+              }
+            ],
+            "metrics": {
+              "cptCount": 4,
+              "size": 4
+            }
+          }
+        ],
+        "vars": []
+      }
+    ]
+  }

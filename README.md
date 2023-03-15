@@ -15,6 +15,11 @@ Due to a bug in CODESYS script parameters(arguments) cannot be passed to the scr
 
 ![screenshot of the script buttons](toolbarExample.png)
 
+### Create Namespace POUs and Data types from JSON data
+
+This script will take in a predefined JSON format description of the components and it will build the source code components inside of the Codesys environment. In src folder you can find an example of the JSON data. JSON is really just because it maps really nicely to the Python dictionary, which this script is using. It could very well be XML, Csv and so on.
+I don't recommend generating the data.json file manually as it was designed to be created programmatically by another program. The script can be used for transpiling a project from non-Codesys to Codesys environment if the non-Codesys environment doesn't support PlcOpenXml.
+
 ## Installation
 
 ### Manual installation
@@ -40,4 +45,5 @@ MIT
 ## Contribution
 
 Raise a pull request with the modified config.json, icons and the script if you want to add some useful scripts to the project.
- 
+
+All objects and command that CODESYS provides for scripting are also in the Python module “scriptengine”. Whenever a script is started, an implicit <code>from scriptengine import *</code> results. This allows for easy access to CODESYS. However, if your script imports modules that require access CODESYS APIs, then these modules have to import the module scriptengine themselves.

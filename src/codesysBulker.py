@@ -1,5 +1,8 @@
+# Python 2.7
+# IronPython
 from __future__ import print_function
-from scriptengine import * #If codesys must import this module, this has to be here
+#Codesys script engine, located by default at C:\Program Files\CODESYS 3.5.18.20\CODESYS\ScriptLib\Stubs
+import scriptengine
 import os
 
 #These guids serve as descriptors of existing objects inside of the project
@@ -21,6 +24,75 @@ GUIDS = {
     '8e687a04-7ca7-42d3-be06-fcbda676c5ef' : '__VisualizationStyle',
     '413e2a7d-adb1-4d2c-be29-6ae6e4fab820' : 'Call to POU'
 }
+class CodesysUIInterface:
+    def __init__(self, selectedProject, verbose = False):
+        '''Takes in the selected Codesys project. E.g. CodesysUIInterface(project.primary)'''
+        if selectedProject == None:
+            raise Exception('Project argument invalid')
+
+        self.project = selectedProject
+        self.verbose = verbose
+
+        self.app = None
+        self.onlineApp = None
+
+        return
+    def setIpOnGateway(self, gateway, ipaddress):
+        '''Sets the IP address on the gateway communication on the PLC'''
+        return NotImplementedError
+
+    def build(self):
+        '''Builds the active application'''
+        if self.app == None:
+            self.app = self.project.active_application
+        
+        self.app.build()
+    
+    def generate_app_code(self):
+        '''Generates code for the active application'''
+        if self.app == None:
+            self.app = self.project.active_application
+        
+        self.app.generate_code()
+
+    def create_online_application(self):
+        '''Creates and online application e.g for going online'''
+        self.onlineApp = scriptengine.online.create_online_application()
+
+    def login(self, changeOption = 1):
+        '''Goes online with the active application.
+        changeOption:
+            Never   = 0 Online change shall never be performed. In that case a full download is forced.  
+            Try     = 1 Online change shall be tried. If not possible, a full download shall be performed.  
+            Force   = 2 Online change shall be forced. If not possible, the action is terminated with no change.  
+            Keep    = 3 Try to login. Do not online update. Do not download. Keep as it is.  
+        '''
+        if self.onlineApp == None:
+            self.create_online_application()
+
+        self.onlineApp.login(changeOption, False)
+
+    def logout(self):
+        '''Logs out of the application'''
+        if self.onlineApp.IsLoggedIn:
+            self.onlineApp.logout()
+        else:
+            print('Already logged out')
+
+    def startApp(self):
+        '''Starts the active application if logged in'''
+        if self.onlineApp.IsLoggedIn:
+            self.onlineApp.start()
+        else:
+            print('Start app failed. Not logged in.')
+
+    def stopApp(self):
+        '''Stops the active application if logged in'''
+        if self.onlineApp.IsLoggedIn:
+            self.onlineApp.stop()
+        else:
+            print('Stop app failed. Not logged in.')
+            
 class CodesysBulker:
     def __init__(self, selectedProject, verbose = False):
         '''Takes in the selected Codesys project. E.g. CodesysBulker(project.primary)'''
@@ -251,14 +323,13 @@ class CodesysBulker:
         #Create the pou
         if self.verbose:
             print('Creating ', pou.get('type'), ' ', pou.get('name'))
-            
         try:
             if pou.get('type') == 'function':
-                crpFct = root.create_pou(name=pou.get('name'), type=PouType.Function, return_type=pou.get('returnType'))
+                crpFct = root.create_pou(name=pou.get('name'), type=scriptengine.PouType.Function, return_type=pou.get('returnType'))
             elif pou.get('type') == 'program':
-                crpFct = root.create_pou(name=pou.get('name'), type=PouType.Program)
+                crpFct = root.create_pou(name=pou.get('name'), type=scriptengine.PouType.Program)
             elif pou.get('type') == 'functionBlock':
-                crpFct = root.create_pou(name=pou.get('name'), type=PouType.FunctionBlock)
+                crpFct = root.create_pou(name=pou.get('name'), type=scriptengine.PouType.FunctionBlock)
                 
             #Write the declaration and the code
             crpFct.textual_declaration.replace(self._createPouDecl(pou))
@@ -308,10 +379,11 @@ class CodesysBulker:
         for varBlock in pou.get('if'):
             decl += varBlock.get('name') + ' ' + varBlock.get('attribute').upper() + '\n'
             for var in varBlock.get('vars'):
-                if var.get('initialValue') == "":
-                    decl += "\t{0} : {1}; (*{2}*)\n".format(var.get('name'), var.get('type'), var.get('description'))
-                else:
-                    decl += "\t{0} : {1} := {2}; (*{3}*)\n".format(var.get('name'), var.get('type'), var.get('initialValue'), var.get('description'))
+                decl += "\t{0} : {1}{2}; {3}\n".format(
+                    var.get('name'),
+                    var.get('type'),
+                    ' := '+ var.get('initialValue') if var.get('initialValue') not in [None, ''] else '',
+                    '(*'+ var.get('description') + '*)' if var.get('description') not in [None, ''] else '')
             decl += 'END_VAR\n'
         return decl
 
@@ -335,10 +407,11 @@ class CodesysBulker:
         for varBlock in pou.get('if'):
             decl += varBlock.get('name') + '\n'
             for var in varBlock.get('vars'):
-                if var.get('initialValue') == "":
-                    decl += "\t{0} : {1}; (*{2}*)\n".format(var.get('name'), var.get('type'), var.get('description'))
-                else:
-                    decl += "\t{0} : {1} := {2}; (*{3}*)\n".format(var.get('name'), var.get('type'), var.get('initialValue'), var.get('description'))
+                decl += "\t{0} : {1}{2}; {3}\n".format(
+                    var.get('name'),
+                    var.get('type'),
+                    ' := '+ var.get('initialValue') if var.get('initialValue') not in [None, ''] else '',
+                    '(*'+ var.get('description') + '*)' if var.get('description') not in [None, ''] else '')
             decl += 'END_VAR\n'
         return decl
 
@@ -356,16 +429,19 @@ class CodesysBulker:
         if dt.get('baseType') == 'struct':
             decl += "STRUCT\n"
             for cpt in dt.get('components'):
-                if cpt.get('initialValue') == "":
-                    decl += "\t{0} : {1}; (*{2}*)\n".format(cpt.get('name'), cpt.get('type'), cpt.get('description'))
-                else:
-                    decl += "\t{0} : {1} := {2}; (*{3}*)\n".format(cpt.get('name'), cpt.get('type'), cpt.get('initialValue'), cpt.get('description'))
+                decl += "\t{0} : {1}{2}; {3}\n".format(
+                    cpt.get('name'),
+                    cpt.get('type'),
+                    ' := '+ cpt.get('initialValue') if cpt.get('initialValue') not in [None, ''] else '',
+                    '(*'+ cpt.get('description') + '*)' if cpt.get('description') not in [None, ''] else '')
             decl += "END_STRUCT\n"
         elif dt.get('baseType') == 'enum':
             decl += '(\n'
             for cpt in dt.get('components'):
-                #Enum must have init value
-                decl += "\t{0} := {1} (*{2}*),\n".format(cpt.get('name'), cpt.get('initialValue'), cpt.get('description'))
+                decl += "\t{0}{1}{2},\n".format(
+                    cpt.get('name'),
+                    ' := '+ cpt.get('initialValue') if cpt.get('initialValue') not in [None, ''] else '',
+                    '(*'+ cpt.get('description') + '*)' if cpt.get('description') not in [None, ''] else '')
             #Remove the second to last character (,) from the last line
             decl = decl[:-2]
             decl += '\n);\n'

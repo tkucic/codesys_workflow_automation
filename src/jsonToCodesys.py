@@ -1,3 +1,7 @@
+# Python 2.7
+# IronPython
+#Codesys script engine, located by default at C:\Program Files\CODESYS 3.5.18.20\CODESYS\ScriptLib\Stubs
+import scriptengine
 from codesysBulker import CodesysBulker
 import json, datetime, os
 
@@ -15,7 +19,7 @@ if __name__ == '__main__':
     times.append(('Time to load the external file ',datetime.datetime.now()-tempTime))
 
     #Get the bulker handle
-    project = CodesysBulker(projects.primary, True)
+    project = CodesysBulker(scriptengine.projects.primary, True)
 
     #Create namespaces and the objects
     for ns in data.get('namespaces'):
@@ -24,7 +28,7 @@ if __name__ == '__main__':
         nsFolder = project.createFolder(ns.get('name'))
 
         #Create POUs of the namespace
-        for pouType in ['fcs', 'fbs', 'prgs']:
+        for pouType in ('fcs', 'fbs', 'prgs'):
             for pou in ns.get(pouType):
                 project.addPou(pou, nsFolder)
         
