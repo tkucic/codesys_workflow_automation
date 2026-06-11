@@ -24,6 +24,13 @@ GUIDS = {
     '8e687a04-7ca7-42d3-be06-fcbda676c5ef' : '__VisualizationStyle',
     '413e2a7d-adb1-4d2c-be29-6ae6e4fab820' : 'Call to POU'
 }
+
+# If True, PLCopenXML export will additionally store declarations as plain text.
+# This preserves formatting/comments better than the default PLCopenXML schema.
+PLCOPENXML_DECLARATIONS_AS_PLAINTEXT = True
+
+
+
 class CodesysUIInterface:
     def __init__(self, selectedProject, verbose = False):
         '''Takes in the selected Codesys project. E.g. CodesysUIInterface(project.primary)'''
@@ -171,7 +178,13 @@ class CodesysBulker:
             if self.verbose:
                 print('Saving PLCOpenXml to: ', fpath)
             #Export to PLCOpenXML
-            self.project.export_xml(self.project.get_children(recursive=True), path=fpath, recursive=True, export_folder_structure=True)
+            self.project.export_xml(
+                self.project.get_children(recursive=True),
+                path=fpath,
+                recursive=True,
+                export_folder_structure=True,
+                declarations_as_plaintext=PLCOPENXML_DECLARATIONS_AS_PLAINTEXT
+            )
             #Return the saved file path
             return fpath
 
