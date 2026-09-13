@@ -1,6 +1,6 @@
 # Workflow automation scripts for CODESYS
 
-Collection of scripts meant for Codesys that automate workflow inside of the IDE.
+Collection of scripts meant for Vanilla Codesys that automate workflow inside of the IDE. It is possible taht these workflows also work on other codesys derivatives.
 
 ## Available scripts
 
